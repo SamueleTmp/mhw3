@@ -106,8 +106,16 @@ function onJSON_Spotify(json){
     console.log(json);
     let items = json.tracks.items;
     
+    let threshold =json.tracks.limit;
+
+    if(json.tracks.items.length<threshold)
+    {
+        threshold = json.tracks.items.length;
+    }
     //genero un numero casuale con il limit
-    let random_number= Math.floor( Math.random()*(json.tracks.limit));
+    let random_number= Math.floor( Math.random()*(threshold));
+
+    
     console.log(random_number);
 
     console.log(items[random_number].name + " " + items[random_number].artists[0].name);
