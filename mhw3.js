@@ -94,8 +94,10 @@ function sendRequestSteam(event){
     fetch(rest_steam, 
                 {metod: 'GET',
                  headers:{'Content-Type': 'application/json',
-                    'X-My-Custom-Header': steam_key,
-                    'Access-Control-Allow-Origin': '*'}
+                          'X-My-Custom-Header': steam_key,
+                          'Access-Control-Allow-Origin': '*',
+                            'Origin' : 'http://127.0.0.1:5500/mhw3.js',
+                            'X-Request-With': '*'}
                 }).then(onResponse, OnError).then(onJSON_Steam);
 }
 
